@@ -1,0 +1,52 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+# Dozvole neophodne za GitHub Pages deplojment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Sprečava preklapanje višestrukih deplojmenta u isto vreme
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout koda
+        uses: actions/checkout@v4
+
+      - name: Podešavanje Node.js okruženja
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalacija zavisnosti
+        run: npm install --legacy-peer-deps
+
+      - name: Bildovanje statičkog sajta (Vite build)
+        run: npm run build
+
+      - name: Konfiguracija GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Otpremanje artefakta (dist folder)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: Deplojovanje na GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
