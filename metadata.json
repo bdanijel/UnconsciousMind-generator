@@ -1,0 +1,6 @@
+{
+  "name": "Unconscious Mind Companion (2-Igrača)",
+  "description": "Mobilni vodič za društvenu igru Unconscious Mind: interaktivna postavka za 2 igrača, baza pravila i nedoumica, podsetnik za poteze i kalkulator konačnih poena.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
