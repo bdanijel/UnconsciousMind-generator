@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { CheckCircle2, Circle, RotateCcw, AlertTriangle, ShieldAlert, Sparkles, Check } from 'lucide-react';
-import { SETUP_STEPS_2P, SetupStep } from '../data/setupData';
-import { CoffeeCupIcon, InkpotIcon, CarriageIcon, InkblotIcon } from './ArtIcons';
+import { CheckCircle2, Circle, RotateCcw, ShieldAlert, Sparkles, Check } from 'lucide-react';
+import { SETUP_STEPS_2P } from '../data/setupData';
 
 export const SetupSection: React.FC = () => {
   const [completedSteps, setCompletedSteps] = useState<Record<string, boolean>>(() => {
@@ -33,7 +32,7 @@ export const SetupSection: React.FC = () => {
   const isAllCompleted = completedCount === totalCount;
 
   const resetSetup = () => {
-    if (window.confirm('Želiš li da resetuješ sve čekirane korake postavke?')) {
+    if (window.confirm('Želite li da resetujete sve čekirane korake postavke?')) {
       setCompletedSteps({});
     }
   };
@@ -54,7 +53,7 @@ export const SetupSection: React.FC = () => {
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold text-[#c8963e] uppercase tracking-wider flex items-center gap-1.5">
               <Sparkles size={14} />
-              Interaktivni Vodič Postavke
+              Interaktivna Postavka Stola
             </span>
             <span className="text-xs font-mono font-bold text-[#f4ece1] bg-[#140c08] px-2 py-0.5 rounded border border-[#c8963e]/30">
               {completedCount} / {totalCount} koraka
@@ -62,10 +61,10 @@ export const SetupSection: React.FC = () => {
           </div>
 
           <h2 className="font-serif-title text-xl font-bold tracking-wide text-[#fdf8f0]">
-            Postavka za 2 Igrača
+            Zvanična Postavka za 2 Igrača
           </h2>
           <p className="text-xs text-[#cfbeaa] leading-relaxed">
-            Igra u dva igrača zahteva postavljanje blokatora na kafanu i sastanke, te specijalnu početnu kompenzaciju za drugog igrača.
+            Korak-po-korak vodič po zvaničnom pravilniku igre Unconscious Mind sa posebnim akcentom na blokiranje 8 polja na Stolu za Sastanke i kompenzaciju kafe u 2P.
           </p>
 
           {/* Progress Bar */}
@@ -106,27 +105,27 @@ export const SetupSection: React.FC = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
           <div className="p-2 rounded-lg bg-[#180e0a] border border-[#3e2519] space-y-0.5">
-            <span className="font-bold text-[#c8963e]">1. Blokirana polja u Kafani</span>
+            <span className="font-bold text-[#c8963e]">1. Blokiranje 8 Polja Stola</span>
             <p className="text-[11px] text-[#cfbeaa]">
-              Postavite neutralne diskove na sva mesta sa oznakom "3-4P". Ta mesta niko ne sme koristiti.
+              Postavite po 1 neiskorišćenu ideju na svih 8 polja u krajnjoj levoj i desnoj koloni Stola za Sastanke.
             </p>
           </div>
           <div className="p-2 rounded-lg bg-[#180e0a] border border-[#3e2519] space-y-0.5">
-            <span className="font-bold text-[#c8963e]">2. Sastanci Društva</span>
+            <span className="font-bold text-[#c8963e]">2. 12 Pločica Beležnice</span>
             <p className="text-[11px] text-[#cfbeaa]">
-              Svaka tema prima samo 1 radnika. Kada protivnik sedne za temu, polje je blokirano.
+              Pripremite tačno 12 pločica Nivoa I i 12 pločica Nivoa II. Ostale vratite u kutiju.
             </p>
           </div>
           <div className="p-2 rounded-lg bg-[#180e0a] border border-[#3e2519] space-y-0.5">
-            <span className="font-bold text-[#c8963e]">3. Početna pozicija u Beču</span>
+            <span className="font-bold text-[#c8963e]">3. Freudov Marker & Reputacija</span>
             <p className="text-[11px] text-[#cfbeaa]">
-              Oba fijakera kreću sa polja Katedrale Sv. Stefana (Stephansdom).
+              Freudov marker reputacije počinje na polju 1 trake Reputacije na Mapi Grada.
             </p>
           </div>
           <div className="p-2 rounded-lg bg-[#180e0a] border border-[#3e2519] space-y-0.5">
-            <span className="font-bold text-[#c8963e]">4. Balans: 2. Igrač ima +1 kafu</span>
+            <span className="font-bold text-[#c8963e]">4. Balans: 2. Igrač ima +1 Kafu</span>
             <p className="text-[11px] text-[#cfbeaa]">
-              Igrač 1 startuje sa 2 kafe, dok Igrač 2 startuje sa 3 kafe (kompenzacija za 2. potez).
+              Prvi igrač počinje sa 4 Kafe, a Drugi igrač sa 5 Kafe (+1 kompenzacija za 2. potez!).
             </p>
           </div>
         </div>
@@ -213,7 +212,7 @@ export const SetupSection: React.FC = () => {
             Sve je spremno za partiju!
           </h3>
           <p className="text-xs text-[#b8e0b9]">
-            Igrači su opremljeni kafom, beležnice su pripremljene, a tabla je prilagođena za dva igrača. Uživajte u psihoanalizi!
+            Igrači su opremljeni kafom i uvidima, Sto za Sastanke je prilagođen za 2 igrača, a Freud je na poziciji 1. Srećno u psihoanalizi!
           </p>
         </div>
       )}

@@ -1,15 +1,15 @@
 import React, { useState, useMemo } from 'react';
-import { Search, ChevronDown, ChevronUp, Sparkles, BookOpen, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { Search, ChevronDown, ChevronUp, Sparkles, BookOpen, AlertCircle } from 'lucide-react';
 import { RULES_DATA, RuleItem } from '../data/rulesData';
-import { InkpotIcon, CoffeeCupIcon, InkblotIcon, CarriageIcon } from './ArtIcons';
+import { InkpotIcon, CoffeeCupIcon, FreudFigureIcon, InsightDialIcon, TreatiseIcon } from './ArtIcons';
 
 export const RulesSection: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [onlyTwoPlayer, setOnlyTwoPlayer] = useState(false);
   const [expandedIds, setExpandedIds] = useState<Record<string, boolean>>({
-    turn_structure: true,
-    two_player_blocking: true
+    turn_options_overview: true,
+    two_player_blocked_spaces: true
   });
   const [showQuickTurnSummary, setShowQuickTurnSummary] = useState(false);
 
@@ -42,32 +42,31 @@ export const RulesSection: React.FC = () => {
 
   const categories = [
     { id: 'all', label: 'Sve' },
-    { id: 'two_player', label: '2 Igrača Fokus' },
-    { id: 'turn', label: 'Faza poteza' },
-    { id: 'treatment', label: 'Snovi & Terapija' },
-    { id: 'notebook', label: 'Beležnica' },
-    { id: 'vienna', label: 'Beč & Profesori' },
-    { id: 'cafe', label: 'Kafana' },
-    { id: 'faq', label: 'FAQ / Dileme' },
+    { id: 'two_player', label: '2 Igrača Posebnosti' },
+    { id: 'turn', label: 'Mogućnosti u Potezu' },
+    { id: 'ideas_meeting', label: 'Sto za Sastanke' },
+    { id: 'insight_dial', label: 'Bročanik Uvida' },
+    { id: 'city_map', label: 'Mapa Beča' },
+    { id: 'clients_dreams', label: 'Klijenti & Snovi' },
+    { id: 'treatises_research', label: 'Istraživanja & Radovi' },
+    { id: 'endgame_scoring', label: 'Kraj & Bodovanje' },
+    { id: 'faq', label: 'FAQ / Dileme' }
   ];
 
   return (
     <div className="space-y-4 pb-20">
-      {/* Top Banner with atmospheric theme */}
+      {/* Top Banner with Viennese theme */}
       <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2a1b14] via-[#1f140f] to-[#140c08] border border-[#c8963e]/25 p-4 text-[#f4ece1] shadow-lg shadow-black/40">
-        <div className="absolute right-0 top-0 translate-x-4 -translate-y-4 opacity-10 pointer-events-none text-[#c8963e]">
-          <InkblotIcon size={140} />
-        </div>
         <div className="relative z-10 space-y-2">
           <div className="flex items-center gap-2 text-xs text-[#c8963e]">
             <BookOpen size={14} />
-            <span>Psihoanalitički Arhiv Beča · 1900</span>
+            <span>Bečko Psihoanalitičko Društvo · Zvanični Pravilnik</span>
           </div>
           <h2 className="font-serif-title text-xl font-bold tracking-wide text-[#fdf8f0]">
-            Baza Pravila & Nedoumica
+            Pravila Igre Unconscious Mind
           </h2>
           <p className="text-xs text-[#d6c7b2] leading-relaxed">
-            Brzi podsetnik za partije u dvoje: pretražuj pojmove, tumači snove i razreši svaku dilemu tokom igre.
+            Zvanični arhiv pravila i razrešenje nedoumica: pretražujte pojmove, tumačite akcije Stola za Sastanke i bročanika uvida.
           </p>
 
           {/* Quick Turn Summary Toggle Button */}
@@ -77,7 +76,7 @@ export const RulesSection: React.FC = () => {
           >
             <span className="flex items-center gap-2">
               <Sparkles size={14} className="text-[#c8963e]" />
-              Brzi redosled poteza (Turn Flow)
+              Brzi redosled poteza (3 Mogućnosti u Potezu)
             </span>
             <span className="text-[11px] text-[#c8963e]">
               {showQuickTurnSummary ? 'Zatvori' : 'Pogledaj'}
@@ -88,29 +87,23 @@ export const RulesSection: React.FC = () => {
         {/* Collapsible Quick Turn Flow chart */}
         {showQuickTurnSummary && (
           <div className="mt-3 pt-3 border-t border-[#c8963e]/20 space-y-2 text-xs">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               <div className="p-2.5 rounded-lg bg-[#150d0a]/80 border border-[#c8963e]/20 space-y-1">
-                <span className="font-bold text-[#c8963e]">1. Postavi ili Pomeri</span>
+                <span className="font-bold text-[#c8963e]">1. Iznesi Ideje (State Ideas)</span>
                 <p className="text-[11px] text-[#cfbeaa]">
-                  Postavi novu karticu ideje na tablu beležnice ILI pomeri mastionicu za broj ideja u željenom smeru.
+                  Stavite 1-2 Ideje na sto → pomerite Mastronicu → aktivirajte akcije stola i red/kolonu na tabli.
                 </p>
               </div>
               <div className="p-2.5 rounded-lg bg-[#150d0a]/80 border border-[#c8963e]/20 space-y-1">
-                <span className="font-bold text-[#c8963e]">2. Izvrši akcije</span>
+                <span className="font-bold text-[#c8963e]">2. Opozovi Ideje (Recall Ideas)</span>
                 <p className="text-[11px] text-[#cfbeaa]">
-                  Aktiviraj red/kolonu beležnice gde je mastionica stala ILI uradi akciju mesta na tabli grada/kafani.
+                  Uzmite Kafu za zakupljena polja → vratite sve svoje ideje u zalihu → uzmite bonus Lokacije/Okruga.
                 </p>
               </div>
               <div className="p-2.5 rounded-lg bg-[#150d0a]/80 border border-[#c8963e]/20 space-y-1">
-                <span className="font-bold text-[#c8963e]">3. Terapija klijenta</span>
+                <span className="font-bold text-[#c8963e]">3. Leči Klijente (Treat Clients)</span>
                 <p className="text-[11px] text-[#cfbeaa]">
-                  Iskoristi sakupljenu Bistrinu i Uvide (crvene/plave/zelene) da rešiš Manifestne/Latentne slojeve ili staviš lekove.
-                </p>
-              </div>
-              <div className="p-2.5 rounded-lg bg-[#150d0a]/80 border border-[#c8963e]/20 space-y-1">
-                <span className="font-bold text-[#c8963e]">4. Kraj poteza & Proboj</span>
-                <p className="text-[11px] text-[#cfbeaa]">
-                  Ako je klijent potpuno izlečen, napreduj na traci Proboja (Breakthrough). Prenesi potez drugom igraču.
+                  Potrošite Uvide sa Snova u Ordinaciji → proizvedite Terapiju → napredujte ka Katarzi i izlečenju!
                 </p>
               </div>
             </div>
@@ -124,7 +117,7 @@ export const RulesSection: React.FC = () => {
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Pretraži pravila (npr. mastionica, kafa, 2 igrača, proboj)..."
+          placeholder="Pretraži pravila (npr. mastionica, kafa, 2 igrača, bročanik, katarza)..."
           className="w-full h-12 pl-11 pr-4 rounded-xl bg-[#231712] border border-[#4a3429] text-sm text-[#f5ede2] placeholder-[#8c7867] focus:outline-none focus:border-[#c8963e] focus:ring-1 focus:ring-[#c8963e] transition-all"
         />
         <Search className="absolute left-3.5 top-3.5 text-[#8c7867]" size={18} />

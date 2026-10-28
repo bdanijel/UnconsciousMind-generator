@@ -1,128 +1,176 @@
 import React from 'react';
 
-export const InkpotIcon: React.FC<{ className?: string; size?: number }> = ({ className = '', size = 24 }) => (
+interface IconProps {
+  size?: number;
+  className?: string;
+}
+
+// Inkpot with Quill (Mastionica sa perom)
+export const InkpotIcon: React.FC<IconProps> = ({ size = 20, className = '' }) => (
   <svg
     width={size}
     height={size}
     viewBox="0 0 24 24"
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className={className}
     stroke="currentColor"
-    strokeWidth="1.8"
+    strokeWidth="1.75"
     strokeLinecap="round"
     strokeLinejoin="round"
+    className={className}
   >
     {/* Inkpot base */}
-    <path d="M5 19H19L17 10H7L5 19Z" fill="currentColor" fillOpacity="0.15" />
-    <path d="M7 10V7C7 5.89543 7.89543 5 9 5H15C16.1046 5 17 5.89543 17 7V10" />
-    <path d="M5 19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19" />
-    <path d="M10 5V3H14V5" />
-    {/* Quill standing in inkpot */}
-    <path d="M12 9L18 2" strokeDasharray="1 1" />
-    <path d="M18 2C19.5 3 20 5 18 7L13.5 10" />
+    <path d="M6 18h12v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2z" fill="currentColor" fillOpacity="0.2" />
+    <path d="M7 11h10l1 7H6l1-7z" />
+    <path d="M9 8h6v3H9z" />
+    <line x1="8" y1="8" x2="16" y2="8" />
+    {/* Quill Feather coming out */}
+    <path d="M14 8C14 4 18 2 21 2c-1 3-3 5-7 6" />
+    <line x1="14" y1="8" x2="18" y2="4" />
   </svg>
 );
 
-export const CoffeeCupIcon: React.FC<{ className?: string; size?: number }> = ({ className = '', size = 24 }) => (
+// Viennese Coffee Cup (Šoljica Bečke Kafe)
+export const CoffeeCupIcon: React.FC<IconProps> = ({ size = 20, className = '' }) => (
   <svg
     width={size}
     height={size}
     viewBox="0 0 24 24"
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className={className}
     stroke="currentColor"
-    strokeWidth="1.8"
+    strokeWidth="1.75"
     strokeLinecap="round"
     strokeLinejoin="round"
-  >
-    <path d="M18 8H19C20.6569 8 22 9.34315 22 11C22 12.6569 20.6569 14 19 14H18" />
-    <path d="M3 8H18V13C18 16.3137 15.3137 19 12 19H9C5.68629 19 3 16.3137 3 13V8Z" fill="currentColor" fillOpacity="0.15" />
-    <path d="M3 21H19" strokeWidth="2" />
-    <path d="M7 3C7 4.5 8 5 8 6" />
-    <path d="M11 2C11 3.5 12 4 12 5" />
-    <path d="M15 3C15 4.5 16 5 16 6" />
-  </svg>
-);
-
-export const InkblotIcon: React.FC<{ className?: string; size?: number }> = ({ className = '', size = 24 }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 32 32"
-    fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg"
     className={className}
   >
-    {/* Symmetrical Rorschach-like inkblot shape */}
-    <path
-      d="M16 3C14.5 5 12 6 10 5.5C8 5 6 7 7 9.5C8 12 5 13 4 15C3 17 5 19.5 7.5 19C10 18.5 11 21 10 23.5C9 26 12 28 14 27C15 26.5 15.5 28 16 29C16.5 28 17 26.5 18 27C20 28 23 26 22 23.5C21 21 22 18.5 24.5 19C27 19.5 29 17 28 15C27 13 24 12 25 9.5C26 7 24 5 22 5.5C20 6 17.5 5 16 3ZM16 11C17.5 13 18.5 15.5 17 17.5C15.5 19.5 16.5 21.5 16 23C15.5 21.5 16.5 19.5 15 17.5C13.5 15.5 14.5 13 16 11Z"
-      opacity="0.85"
-    />
+    {/* Cup */}
+    <path d="M17 8h1a3 3 0 0 1 0 6h-1" />
+    <path d="M3 8h14v7a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z" fill="currentColor" fillOpacity="0.15" />
+    <line x1="2" y1="21" x2="18" y2="21" />
+    {/* Steam */}
+    <path d="M6 3c0 1.5 1 2 1 3" />
+    <path d="M10 2c0 1.5 1 2 1 3" />
+    <path d="M14 3c0 1.5 1 2 1 3" />
   </svg>
 );
 
-export const CarriageIcon: React.FC<{ className?: string; size?: number }> = ({ className = '', size = 24 }) => (
+// Heart-Shaped Box Marker (Kutija u obliku srca)
+export const HeartBoxIcon: React.FC<IconProps> = ({ size = 20, className = '' }) => (
   <svg
     width={size}
     height={size}
     viewBox="0 0 24 24"
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className={className}
     stroke="currentColor"
-    strokeWidth="1.8"
+    strokeWidth="1.75"
     strokeLinecap="round"
     strokeLinejoin="round"
+    className={className}
   >
-    {/* Viennese Fiaker Carriage */}
-    <rect x="3" y="6" width="11" height="8" rx="2" fill="currentColor" fillOpacity="0.15" />
-    <path d="M3 10H14" />
-    <path d="M7 6V10" />
-    <path d="M14 8H17L19 12V14H14" />
-    <circle cx="6" cy="18" r="3" />
-    <circle cx="17" cy="18" r="3" />
-    <path d="M9 18H14" />
-    <path d="M21 14H23" />
+    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" fill="currentColor" fillOpacity="0.2" />
+    <path d="M12 5v14" strokeDasharray="2 2" />
   </svg>
 );
 
-export const NotebookIcon: React.FC<{ className?: string; size?: number }> = ({ className = '', size = 24 }) => (
+// Insight Dial (Bročanik Uvida sa 3 prstena)
+export const InsightDialIcon: React.FC<IconProps> = ({ size = 20, className = '' }) => (
   <svg
     width={size}
     height={size}
     viewBox="0 0 24 24"
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className={className}
     stroke="currentColor"
-    strokeWidth="1.8"
+    strokeWidth="1.75"
     strokeLinecap="round"
     strokeLinejoin="round"
+    className={className}
   >
-    <path d="M4 19.5V4.5C4 3.67157 4.67157 3 5.5 3H18.5C19.3284 3 20 3.67157 20 4.5V19.5C20 20.3284 19.3284 21 18.5 21H5.5C4.67157 21 4 20.3284 4 19.5Z" fill="currentColor" fillOpacity="0.15" />
-    <path d="M4 6H20" />
-    <path d="M8 3V21" />
-    <path d="M12 11H16" />
-    <path d="M12 15H16" />
+    <circle cx="12" cy="12" r="9" />
+    <circle cx="12" cy="12" r="6" />
+    <circle cx="12" cy="12" r="3" fill="currentColor" fillOpacity="0.2" />
+    <line x1="12" y1="3" x2="12" y2="21" />
+    <line x1="4.2" y1="16.5" x2="19.8" y2="7.5" />
+    <line x1="4.2" y1="7.5" x2="19.8" y2="16.5" />
   </svg>
 );
 
-export const DropletClarityIcon: React.FC<{ className?: string; size?: number }> = ({ className = '', size = 24 }) => (
+// Sigmund Freud Figure / Reputation Icon
+export const FreudFigureIcon: React.FC<IconProps> = ({ size = 20, className = '' }) => (
   <svg
     width={size}
     height={size}
     viewBox="0 0 24 24"
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className={className}
     stroke="currentColor"
-    strokeWidth="1.8"
+    strokeWidth="1.75"
     strokeLinecap="round"
     strokeLinejoin="round"
+    className={className}
   >
-    <path d="M12 2.69L6.5 11.5C4.7 14.4 5.3 18.2 8 20.1C10.7 22 14.3 21.6 16.5 19.1C18.7 16.6 18.5 12.8 16 10.3L12 2.69Z" fill="currentColor" fillOpacity="0.2" />
-    <path d="M10 16C10 17.1 10.9 18 12 18" strokeDasharray="1 1" />
+    <path d="M12 3a4 4 0 0 1 4 4v1a4 4 0 0 1-8 0V7a4 4 0 0 1 4-4z" />
+    <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+    {/* Glasses line */}
+    <circle cx="10" cy="7" r="1.5" />
+    <circle cx="14" cy="7" r="1.5" />
+    <line x1="11.5" y1="7" x2="12.5" y2="7" />
+  </svg>
+);
+
+// Published Treatise Icon (Objavljeni naučni rad)
+export const TreatiseIcon: React.FC<IconProps> = ({ size = 20, className = '' }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.75"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" fill="currentColor" fillOpacity="0.15" />
+    <line x1="9" y1="7" x2="16" y2="7" />
+    <line x1="9" y1="11" x2="14" y2="11" />
+  </svg>
+);
+
+// Translucent Grief Layer Icon (Sloj Tuge)
+export const GriefLayerIcon: React.FC<IconProps> = ({ size = 20, className = '' }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.75"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <rect x="3" y="3" width="18" height="18" rx="2" strokeDasharray="3 3" />
+    <path d="M8 12a4 4 0 0 1 8 0" />
+    <circle cx="9" cy="9" r="1" fill="currentColor" />
+    <circle cx="15" cy="9" r="1" fill="currentColor" />
+  </svg>
+);
+
+// Bright Idea Token (Svetla Ideja)
+export const BrightIdeaIcon: React.FC<IconProps> = ({ size = 20, className = '' }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.75"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.7 1.3 1.5 1.5 2.5" />
+    <path d="M9 18h6" />
+    <path d="M10 22h4" />
+    <path d="M12 2v2" />
   </svg>
 );
